@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da812036d1fd44aaa96d3139e88425e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 10
+  gravity: 20
   jumpTime: 0
 --- !u!143 &910942039
 CharacterController:
@@ -554,7 +554,7 @@ Animator:
   m_GameObject: {fileID: 910942033}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63c316d8a4eba4b049b258343618b9e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

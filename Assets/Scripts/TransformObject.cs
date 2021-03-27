@@ -9,7 +9,7 @@ public class TransformObject : MonoBehaviour
     private Animator animator;
     private CharacterController characterController;
     private Vector3 moveDirection;
-    public float gravity = 10f;
+    public float gravity = 20f;
     private float jumpSpeed = 5f;
     private bool jumpUpEnd = false;
     [SerializeField]
@@ -31,19 +31,21 @@ public class TransformObject : MonoBehaviour
             moveDirection = Vector3.zero;
             var input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
-            if (input.magnitude > 0f)
-            {
-                animator.SetFloat("Speed", input.magnitude);
-                transform.LookAt(transform.position + input);
-                moveDirection += input.normalized * 2;
-            }
-            else
-            {
-                animator.SetFloat("Speed", 0f);
-            }
-
             if (Input.GetButtonDown("Jump"))
             {
+                // 移動
+                if (input.magnitude > 0f)
+                {
+                    animator.SetFloat("Speed", input.magnitude);
+                    transform.LookAt(transform.position + input);
+                    moveDirection += input.normalized * 2;
+                }
+                else
+                {
+                    animator.SetFloat("Speed", 0f);
+                }
+
+                // ジャンプ
                 moveDirection.y = jumpSpeed;
 
                 //ジャンプ中に関わる変数
@@ -51,8 +53,6 @@ public class TransformObject : MonoBehaviour
                 jumpUpEnd = false;
                 jumpTime = 0;
             }
-
-            
         }
         else
         {
